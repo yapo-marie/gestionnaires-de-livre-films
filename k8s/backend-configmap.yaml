@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: collection-app
+data:
+  APP_NAME: Collection Manager API
+  CORS_ORIGINS: http://localhost:3002

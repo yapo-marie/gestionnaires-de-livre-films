@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    command: ["postgres", "-c", "port=5434"]
+    environment:
+      POSTGRES_DB: collections
+      POSTGRES_USER: collection_user
+      POSTGRES_PASSWORD: collection_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5434:5434'
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg2://collection_user:collection_password@postgres:5434/collections
+      CORS_ORIGINS: http://localhost:3002
+    depends_on:
+      - postgres
+    ports:
+      - '8002:8002'
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - '3002:80'
+
+volumes:
+  postgres_data:
+    driver: local

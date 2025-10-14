@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: collection-app
+data:
+  POSTGRES_DB: collections
+  POSTGRES_USER: collection_user

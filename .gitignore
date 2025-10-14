@@ -1,0 +1,54 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+.venv/
+venv/
+env/
+python.env
+instance/
+.env
+.env.*
+
+# FastAPI / Uvicorn
+*.db
+*.pid
+
+# Node / Vite
+node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+npm-debug.log*
+yarn-error.log*
+
+# Coverage / reports
+.coverage
+.coverage.*
+htmlcov/
+pytest_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Editors / tools
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Kubernetes / Docker artifacts
+*.local.yaml
+
+# Build outputs
+backend/.mypy_cache/
+backend/.pytest_cache/
+backend/.ruff_cache/
